@@ -6,6 +6,7 @@ mod activity3b;
 mod activity4a;
 mod activity4b;
 mod activity5;
+mod activity6;
 
 pub fn main() {
     // basics::run();
@@ -16,4 +17,5 @@ pub fn main() {
     activity4a::run();
     activity4b::run();
     activity5::run();
+    activity6::run();
 }
