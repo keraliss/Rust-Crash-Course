@@ -42,6 +42,20 @@ pub fn run() {
         println!(" while f = {f}");
         f = f + 1;
     }
+
+//    all arithmatic functions
+    let sum = 5 + 10;
+    let difference = 95.5 - 4.3;
+    let multiplication = 4 * 30;
+    let div = 56.7 / 32.2;
+    let remainder = 43 % 5;
+
+    println!("sum = {sum}");
+    println!("difference = {difference}");
+    println!("multiplication = {multiplication}");
+    println!("div = {div}");
+    println!("remainder = {remainder}");
+
 }
 
 
