@@ -43,7 +43,7 @@ pub fn run() {
         f = f + 1;
     }
 
-//    all arithmatic functions
+    //    all arithmatic functions
     let sum = 5 + 10;
     let difference = 95.5 - 4.3;
     let multiplication = 4 * 30;
@@ -70,10 +70,46 @@ pub fn run() {
         _ => println!("other"),
     }
 
+    let go = Direction::Right;
+    match go {
+        Direction::Up => println!("go up"),
+        Direction::Down => println!("go down"),
+        Direction::Left => println!("go left"),
+        Direction::Right => println!("go right"),
+    }
 
+    let cerial = GroceryItem {
+        stock: 10,
+        price: 99.99,
+    };
+    println!("stock = {}", cerial.stock);
+    println!("price = {}", cerial.price);
+
+    let coordinate = (3, 5);
+    println!("{},{}", coordinate.0, coordinate.1);
+
+    let (x, y) = (2,3);
+    println!("{},{}", x, y);
+
+    let user_info = ("John", "Doe", 32);
+    println!("Name : {} {}, Age : {}", user_info.0, user_info.1, user_info.2);
+
+    let (name,age) = ("Emma",19);
+    println!("Name : {}, Age : {}", name, age);
 
 }
 
+struct GroceryItem {
+    stock: i32,
+    price: f32,
+}
+
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
 
 fn add(x: i32, y: i32) -> i32 {
     x + y
