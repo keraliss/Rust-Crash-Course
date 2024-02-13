@@ -88,15 +88,70 @@ pub fn run() {
     let coordinate = (3, 5);
     println!("{},{}", coordinate.0, coordinate.1);
 
-    let (x, y) = (2,3);
+    let (x, y) = (2, 3);
     println!("{},{}", x, y);
 
     let user_info = ("John", "Doe", 32);
-    println!("Name : {} {}, Age : {}", user_info.0, user_info.1, user_info.2);
+    println!(
+        "Name : {} {}, Age : {}",
+        user_info.0, user_info.1, user_info.2
+    );
 
-    let (name,age) = ("Emma",19);
+    let (name, age) = ("Emma", 19);
     println!("Name : {}, Age : {}", name, age);
 
+    // only for admin
+    let access_level = Access::Guest;
+    let can_access_file = match access_level {
+        Access::Admin => true,
+        _ => false,
+    };
+
+    println!("can_access_file = {can_access_file}");
+
+    let dull = Light::Dark;
+    display_light(&dull);
+    display_light(&dull);
+
+    let book = Book {
+        pages: 100,
+        rating: 5,
+    };
+    display_page_count(&book);
+    display_rating(book);
+    // println!("{}", book.pages);
+}
+
+struct Book {
+    pages: i32,
+    rating: i32,
+}
+
+fn display_page_count(book: &Book) {
+    println!("pages = {}", book.pages);
+}
+
+fn display_rating(book: Book) {
+    println!("rating = {}", book.rating);
+}
+
+enum Light {
+    Bright,
+    Dark,
+}
+
+fn display_light(light: &Light) {
+    match light {
+        Light::Bright => println!("bright"),
+        Light::Dark => println!("dark"),
+    }
+}
+
+enum Access {
+    Admin,
+    Manager,
+    User,
+    Guest,
 }
 
 struct GroceryItem {
