@@ -120,6 +120,33 @@ pub fn run() {
     display_page_count(&book);
     display_rating(book);
     // println!("{}", book.pages);
+
+    let hot = Temperature { degrees_f: 99.9 };
+    hot.show_temp();
+    let cold = Temperature::freezing();
+    cold.show_temp();
+    let boil = Temperature::boiling();
+    boil.show_temp();
+}
+
+struct Temperature {
+    degrees_f: f64,
+}
+
+impl Temperature {
+    fn show_temp(&self) {
+        println!("temp = {}", self.degrees_f);
+    }
+    fn freezing() -> Self {
+        Self {
+            degrees_f: 32.0,
+        }
+    }
+    fn boiling () -> Self {
+        Self {
+            degrees_f: 212.0,
+        }
+    }
 }
 
 struct Book {
