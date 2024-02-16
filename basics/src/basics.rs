@@ -127,6 +127,39 @@ pub fn run() {
     cold.show_temp();
     let boil = Temperature::boiling();
     boil.show_temp();
+
+    let my_num = vec![1,2,3];
+    for num in my_num {
+        println!("num = {}", num);
+    }
+
+    let my_score = vec![Test{score: 90}, Test{score: 80}, Test{score: 70}];
+    for test in my_score{
+        println!("score = {}", test.score);
+    }
+
+    let my_items = vec![
+        LineItem {
+            name: String::from("apple"),
+            count: 10,
+        },
+        LineItem {
+            name: String::from("banana"),
+            count: 20,
+        }
+    ];
+    for item in my_items{
+        println!("name = {}, count = {}", item.name, item.count);
+    }
+}
+
+struct LineItem {
+    name: String,
+    count: i32,
+}
+
+struct Test {
+    score : i32,
 }
 
 struct Temperature {
