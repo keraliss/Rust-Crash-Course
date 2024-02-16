@@ -151,6 +151,57 @@ pub fn run() {
     for item in my_items{
         println!("name = {}, count = {}", item.name, item.count);
     }
+
+    let mark = Customer{
+        name: String::from("Mark"),
+        age: Some(32),
+        email: String::from("a@a.com"),
+    };
+    let jane = Customer{
+        name: String::from("Jane"),
+        age: None,
+        email: String::from("b@b.com"),
+    };
+
+    match mark.age {
+        Some(age) => println!("Name = {}, age = {}, email = {}", mark.name, age, mark.email),
+        None => println!("Name = {}, email = {}", mark.name, mark.email),
+    }
+    match jane.age {
+        Some(age) => println!("Name = {}, age = {}, email = {}", jane.name, age, jane.email),
+        None => println!("Name = {}, email = {}", jane.name, jane.email),
+        
+    }
+
+    let my_survey = Survey{
+        q1: Some(1),
+        q2: Some(true),
+        q3: Some(String::from("hello")),
+    };
+    match my_survey.q1 {
+        Some(ans) => println!("q1 = {}", ans),
+        None => println!("q1 = None"),
+    }
+    match my_survey.q2 {
+        Some(ans) => println!("q2 = {}", ans),
+        None => println!("q2 = None"),
+    }
+    match my_survey.q3 {
+        Some(ans) => println!("q3 = {}", ans),
+        None => println!("q3 = None"),
+    }
+}
+
+struct Survey {
+    q1: Option<i32>,
+    q2: Option<bool>,
+    q3: Option<String>,
+}
+
+struct Customer {
+    name: String,
+    age: Option<i32>,
+    email: String,
 }
 
 struct LineItem {
