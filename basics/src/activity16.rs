@@ -20,7 +20,6 @@ pub fn run() {
         name: String::from("Jane"),
         locker: Some(1),
     };
-
     match student1.locker {
         Some(locker) => println!("{} has a locker {}", student1.name, locker),
         None => println!("{} has no locker", student1.name),

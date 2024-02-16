@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn run() {
     let c = add(5, 15);
     println!("c = {c}");
@@ -189,6 +191,51 @@ pub fn run() {
     match my_survey.q3 {
         Some(ans) => println!("q3 = {}", ans),
         None => println!("q3 = None"),
+    }
+
+    let numbers = vec![1,2,3];
+
+    match numbers.is_empty() {
+        true => println!("empty"),
+        false => for n in numbers {
+            println!("n is not empty, and the value is = {}", n);
+        }
+    }
+
+    let choice = get_choice("open");
+    println!("choice = {:?}", choice);
+
+    let mut lockers = HashMap::new();
+    lockers.insert(1, Contents{content: String::from("School Bag")});
+    lockers.insert(2, Contents{content: String::from("Drawing Tools")});
+    lockers.insert(3, Contents{content: String::from("Gym Shorts")});
+
+    for (locker_number,content) in lockers.iter() {
+        println!("locker_number = {}, content = {}", locker_number, content.content);
+    }
+
+
+}
+
+struct Contents {
+    content: String,
+}
+
+#[derive(Debug)]
+ enum MenuChoice {
+    New,
+    Open,
+    Save,
+    Quit,
+}
+
+fn get_choice(input:&str) -> Result<MenuChoice, String>{
+    match input {
+        "new" => Ok(MenuChoice::New),
+        "open" => Ok(MenuChoice::Open),
+        "save" => Ok(MenuChoice::Save),
+        "quit" => Ok(MenuChoice::Quit),
+        _ => Err(String::from("invalid input")),
     }
 }
 
